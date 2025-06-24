@@ -1,0 +1,9 @@
+/* Importing CSS files */
+
+@import 'utilities/typography.css';
+@import 'utilities/layout.css';
+@import 'components/header.css';
+
+/* Page styles for the portfolio */
+
+@import 'pages/home.css';

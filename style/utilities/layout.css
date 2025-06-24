@@ -1,0 +1,52 @@
+/* Default layout style */
+
+:root {
+  --primary-color: #1f449c;
+  --accent-color: #fc6d2b;
+  --white-color: #fdfcef;
+  --black-color: #333;
+}
+
+/*:root {
+  --primary-color: #3853b5;
+  --secondary-color: #c2e305;
+  --accent-color: #f05039;
+  --darker-color: #0c2272;
+  --background-color: #eafaff;
+  --text-color: #333;
+  --font-size: 16px;
+}
+
+:root {
+  --primary-color: #F26419;
+  --secondary-color: #ff8025;
+  --accent-color: #f05039;
+  --darker-color: #0c2272;
+  --background-color: #1B2021;
+  --text-color: #333;
+  --font-size: 16px;
+}*/
+/*
+:root {
+  --primary-color: #eb0909;
+  --accent-color: #f5e20e;
+  --bg-color: #585757;
+  --text-color: #eee;
+}*/
+
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}

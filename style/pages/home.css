@@ -1,0 +1,377 @@
+/* Stylesheet for Home Page */
+* {
+  box-sizing: border-box;
+}
+
+/* About section */
+.about {
+  background-image: /*linear-gradient(#f7f0f097, #fef5f597),*/
+  url('../../img/about-me2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+  padding: 0 5% 5% 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically centers content */
+  height: 100%;
+}
+
+.about img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about h2 {
+  z-index: 2;
+  text-align: left;
+  padding: 3rem 0 0 1rem;
+  margin: 3rem 0 0 0;
+  color: var(--primary-color);
+  font-family: "Anton", sans-serif;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.about h2 span {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.Hi {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.Filip {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent-color);
+}
+
+.certified {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.certified em {
+  font-style: italic;
+}
+
+.about p {
+  text-align: left;
+  z-index: 2;
+  position: relative;
+  padding: 0 2vw 0 1rem;
+  margin: 0 0 0 0;
+  line-height: 1;
+  font-family: "Racing Sans One", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  color: var(--white-color);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Initial hidden state */
+.Hi, .Filip, .certified, .about p {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+/* When visible */
+.Hi.visible,
+.Filip.visible,
+.certified.visible,
+.about p.visible {
+  animation: slideInLeft 1.2s ease-out forwards;
+}
+
+/* "Offer" and "Reviews" container section */
+.container {
+  display: grid;
+  margin-left: 0%;
+  margin-right: 0%;
+  grid-template-columns: 1fr;
+  width: 100%;
+  grid-template-areas:   
+  "offer"
+  "reviews";
+  grid-template-columns: 1fr;
+  background: var(--primary-color);
+  /*grid-template-columns: fit-content(60%) fit-content(40%);*/
+  height: auto;
+}
+
+.offer {
+  grid-area: offer;
+  color: var(--white-color);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically centers content */
+  height: 100%;
+  padding: 5% 5% 5% 5%;
+}
+
+.offer h2 {
+  color: var(--accent-color);
+  font-family: "Anton", sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  line-height: 1;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.offer p {
+  font-family: "Racing Sans One", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  color: var(--white-color);
+  padding: 0;
+  margin: 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.offer ul {
+  font-family: "Racing Sans One", sans-serif;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  font-size: 1.2rem;;
+}
+
+.reviews {
+  grid-area: reviews;
+  /*padding: 10% 10% 10% 5%;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically centers content */
+  height: 100%;
+  padding: 5% 10% 5% 5%;
+}
+
+.reviews h2 {
+  color: var(--accent-color);
+  font-family: "Anton", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.reviews p {
+  font-family: "Racing Sans One", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: var(--white-color);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0;
+}
+  
+      /* Carousel Styles */
+      .carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .review-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        max-width: 100%;
+      }
+
+      .review-slider {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 100%;
+      }
+
+      .review {
+        flex: 0 0 100%;
+        font-style: italic;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      .review h4 {
+        margin-top: 1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: var(--white-color);
+        font-family: "Racing Sans One", sans-serif;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        margin: 0;
+        padding: 0;
+      }
+
+      .arrow {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--primary-color);
+        transition: color 0.3s;
+        margin: 0;
+        padding: 0;
+      }
+
+      .arrow:hover {
+        color: #000;
+      }
+
+/* Contact section */
+.contact {
+  background-image: url('../../img/contact.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically centers content */
+  height: 100%;
+  padding: 5% 5% 5% 5%;
+}
+
+.contact h2 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  color: var(--accent-color);
+  font-family: "Anton", sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  line-height: 3rem;
+}
+
+.contact p {
+  font-family: "Racing Sans One", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: var(--white-color);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+/* Grid layout on desktop */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 55% 45%;
+    grid-template-areas:
+      "offer reviews";
+    column-gap: 30px;
+    align-items: center;
+    align-items: start;
+    width: 100%;
+  }
+
+  .about {
+    height: auto;
+  }
+
+  .about p {
+    padding: 0 25vw 0 1rem;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .about h2 {
+    font-size: 7rem;
+    letter-spacing: 5px;
+  }
+
+  .Hi {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .Filip {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .certified {
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  .offer {
+    padding: 10% 5% 10% 5%;
+  }
+
+  .reviews {
+    padding: 10% 10% 10% 5%;
+  }
+
+  .offer p, .offer ul {
+    font-size: 1.5rem;
+  }
+
+  .offer h2 {
+    font-size: 3.5rem;
+  }
+
+  .reviews h2 {
+    font-size: 2.5rem;
+  }
+
+  .reviews p {
+    font-size: 1.4rem;
+  }
+
+  .contact {
+    height: auto;
+  }
+
+  .contact h2 {
+    font-size: 3rem;
+  }
+
+  .contact p {
+    font-size: 2rem;
+  }
+}
+
+html, body, .container, .carousel, .review {
+  max-width: 100vw;
+  overflow-x: hidden;
+}

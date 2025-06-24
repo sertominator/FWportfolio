@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filip Squash</title>
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="icon" href="img/site-logo.svg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <img src="img/arrow-forward2.svg" alt="Arrow" height="20px"/>
+            <a href="#offer">Offer</a>
+            <img src="img/arrow-forward2.svg" alt="Arrow" height="20px"/>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("div[id]");
+        const navLinks = document.querySelectorAll("nav a");
+
+        const options = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.7,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+            const id = entry.target.getAttribute("id");
+            const navLink = document.querySelector(`nav a[href="#${id}"]`);
+
+            if (entry.isIntersecting) {
+                navLinks.forEach((link) => link.classList.remove("active"));
+                if (navLink) navLink.classList.add("active");
+            }
+            });
+        }, options);
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+        });
+    </script>
+
+
+    <main>
+
+        <!--About-->
+        <div class="about" id="about">
+            <h2>
+                <span class="Hi">HI! I AM</span>
+                <span class="Filip">FILIP</span>
+                <span class="certified">A <em>SQUASH</em> TRAINER</span>
+            </h2>
+            <p><br>I've been playing squash for 10 years 
+                and have begun coaching 4 years ago. I sometimes play competitively, 
+                but first and foremost I like to teach the sport I love, 
+                which is why I recently obtained a WSC level 2 coach certificate. 
+                Let me share my passion with you!</p>
+            <!--<img src="img/rackets.svg" alt="Squash rackets"/>-->
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            const targets = [
+                document.querySelector(".Hi"),
+                document.querySelector(".Filip"),
+                document.querySelector(".certified"),
+                document.querySelector(".about p")
+            ];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            targets.forEach(el => {
+                if (el) observer.observe(el);
+            });
+            });
+        </script>
+
+
+        <div class="container">
+            <!--Offer-->
+            <div class="offer" id="offer">
+                <h2>Offer</h2>
+                <p>I offer squash trainings for all levels, from beginners to advanced players. 
+                    The sessions are tailored to your needs and goals.
+                </p>
+                <ul>
+                    <li>1 hour individual: 100 PLN</li>
+                    <li>1 hour group: 70 PLN/person</li>
+                </ul>
+            </div>
+
+            <!--Reviews-->
+            <div class="reviews">
+                <h2>What my students say</h2>
+                <div class="carousel">
+                    <button class="arrow left" onclick="prevReview()"><img style="transform: rotate(180deg);" src="img/arrow-forward2.svg" alt="Arrow" height="20px"/></button>
+                    <div class="review-container">
+                        <div class="review-slider">
+                            <div class="review">
+                            <p>"Filip is a fantastic coach! He improved my technique in just a 
+                                few sessions."</p>
+                            <h4>— Anna K.</h4>
+                            </div>
+                            <div class="review">
+                            <p>"Fun, engaging and professional. Highly recommended for all levels."</p>
+                            <h4>— Mark T.</h4>
+                            </div>
+                            <div class="review">
+                            <p>"I feel much more confident on the court thanks to Filip’s training."</p>
+                            <h4>— Sophie L.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="arrow right" onclick="nextReview()"><img src="img/arrow-forward2.svg" alt="Arrow" height="20px"/></button>
+                </div>
+            </div>
+
+            <script>
+                let currentIndex = 0;
+                const reviews = document.querySelectorAll(".review");
+                const slider = document.querySelector(".review-slider");
+
+                function showReview(index) {
+                currentIndex = index;
+                const offset = -index * 100;
+                slider.style.transform = `translateX(${offset}%)`;
+                }
+
+                function nextReview() {
+                const next = (currentIndex + 1) % reviews.length;
+                showReview(next);
+                }
+
+                function prevReview() {
+                const prev = (currentIndex - 1 + reviews.length) % reviews.length;
+                showReview(prev);
+                }
+
+                setInterval(nextReview, 7000);
+
+            </script>
+
+        </div>
+
+        <!--Contact-->
+        <div class="contact" id="contact">
+            <h2>Contact me</h2>
+            <p>If you would like to book a training or find out more, please reach out!<br>
+                Email: <a href="mailto:filwoj.praca@gmail.com">filwoj.praca@gmail.com</a></p>
+            <div class="icons">
+                <a class="link" href="https://www.instagram.com/filipas_woj/" target="_blank" rel="noopener">
+                    <img src="img\instagram-square-icon.png" alt="Instagram icon" width="50vh"/></a>
+                <a class="link" href="https://www.linkedin.com/in/filip-wojciechowski-615196245/" target="_blank" rel="noopener">
+                    <img src="img\linkedin-square-icon.png" alt="Linkedin icon" width="50vh"/></a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
